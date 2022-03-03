@@ -43,9 +43,24 @@
   <p id="results" style="background-color: rgb(129, 189, 189); width: fit-content;"></p>
   <hr>
 
+  <form>
+    <label for="pname">Enter a property name </label>
+    <input type ="text" id="pname" name="pname" min=10 max=50 step=2 value="engraved"> <br><br>
+    <label for="pvalue">Enter a value</label>
+    <input type ="text" id="pvalue" name="pvalue" autofocus > <br> <br>
+    <input type="button" onclick="updateComputer()" value="Update the computer">
+</form>
+
   <p id="result"></p>
  <script>
  var my_computer={}
+ function updateComputer(){
+   var a=document.getElementById("pname").value
+   var b=document.getElementById("pvalue").value
+    my_computer[a]=b
+    document.getElementById("result").innerHTML=a+":"+b+" <b>Added Successfully</b>"
+    console.log(my_computer)
+}
 
   function orderComputer(){
 
