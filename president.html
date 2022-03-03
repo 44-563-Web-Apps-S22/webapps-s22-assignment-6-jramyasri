@@ -26,18 +26,35 @@
 
 <script> 
 
-var correct=0,wrong=0
+let correct=0,wrong=0,useImage=1;
+let streak=0
+
 function checkGuess(){
     if(document.getElementById("preguess").value==document.getElementById('guess').value){
         correct++;
         alert('you got it right!!')
+    playagain()
     }
     else{
         wrong++
-        alert('Oops!! Wrong President')
+        streak++
+
+
+        if(streak==3){
+        alert('Sorry..Game Over!! Play Again.')
+        playagain()
+
+    }else{
+        alert('Wrong President. Try Again')
+    }
+
     }
   document.getElementById("result").innerHTML="Correct :"+correct+" wrong :"+wrong
 }
+function playagain(){
+    location.reload()
+    }
+
 function resolveForm (){
     console.log("Getting form values")
     age = document.getElementById("form1_age").value
@@ -67,7 +84,7 @@ function resolveForm (){
                 useImage=2;
                 break;
                 case 2:
-                document.getElementById('im').src="Albatrosss.jpg";
+                document.getElementById('im').src="albatrosss.jpg";
                 useImage=3;
                 break;
                 case 3:
